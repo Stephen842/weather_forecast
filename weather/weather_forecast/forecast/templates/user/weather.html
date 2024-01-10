@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang = 'eng'>
+
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale = 1'>
+        <link rel= 'stylesheet' href='{% static 'style.css' %}'>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name= 'author' content= 'PythoGenius'>
+        <title> WeatherNow </title>
+
+    </head>
+
+        <body>
+                <div class = 'weather-app'>
+                        {% for weather in weather_data %}
+
+                        <div class = 'container'>
+                                <h3 class = 'brand'> Weather Now </h3>
+                                <div>
+                                        <h1 class = 'temp'> {{ weather.temperature }}&#176; </h1>
+                                        <div class = 'city-time'>
+                                                <h1 class = 'name'> {{ weather.city}} </h1>
+                                                <small><b>
+                                                        <span class = 'time'> {{ current_datetime|date:'H:i' }} </span> -
+                                                        <span class = 'date'> {{ current_datetime|date:'D d M Y' }} </span>
+                                                </b></small>
+                                        </div>
+
+                                        <div class = 'weather'>
+                                                  <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="image" width = '50' height = '50' class = 'icon'/>
+                                                  <br>
+                                                  <span class = 'condition'><b> {{ weather.description }} </b></span>
+                                        </div>
+                                </div>
+
+                                <div class = 'panel'>
+                                        <form action = '{% url 'search_results' %}' method = 'get' class = 'form'>
+                                {% csrf_token %}
+                                        <input type = 'text' placeholder = 'Search Location...' name = 'search_field' class = 'search'/>
+                                        <button type = 'submit' class = 'submit'> <i class='bx bx-search-alt-2'></i> </button>
+                                </form>
+
+                                <ul class = 'cities'>
+
+                                        {% comment i looped through the database over here to get accessed to the cities. though i still have to input the city manually so as to have full control over CSS.%}
+                                        {% for city in mycities %}
+                                        <li class = 'city'><a href ='details/{{ city.id }}'> {{ city.name }} </a></li>
+                                        {% endfor %}
+
+                                        <li class = 'city'><a href = 'http://127.0.0.1:8000/details/46'> Lagos </a></li>
+                                        <li class = 'city'><a href = 'http://127.0.0.1:8000/details/47'> Enugu </a></li>
+                                        <li class = 'city'><a href = 'http://127.0.0.1:8000/details/48'> Ibadan </a></li>
+                                        <li class = 'city'><a href = 'http://127.0.0.1:8000/details/49'> Calabar </a></li>
+                                        <li class = 'city'><a href = 'http://127.0.0.1:8000/details/50'> Benin </a></li>
+
+                                        <hr/>
+                                        {% endcomment%}
+
+                                        <ul class = 'details'>
+                                                <h4> Weather details </h4>
+                                                <li>
+                                                        <span> Cloudy </span>
+                                                        <span class = 'cloud'> {{ weather.cloud }}% </span>
+                                                </li>
+
+                                                <li>
+                                                         <span> Humidity </span>
+                                                        <span class = 'humidity'> {{ weather.humidity }}% </span>
+                                                </li>
+
+                                                <li>
+                                                        <span> Wind </span>
+                                                         <span class = 'wind'> 8km/h </span>
+                                                 </li>
+
+                                                <li>
+                                                        <span> Pressure </span>
+                                                        <span class = 'pressure'> {{ weather.pressure }}hPa </span>
+                                                </li>
+
+                                                <li>
+                                                        <span> Longitude </span>
+                                                        <span class = 'longitude'> {{ weather.longitude }}&#176; </span>
+                                                </li>
+
+                                                <li>
+                                                        <span> Latitude </span>
+                                                        <span class = 'latitude'> {{ weather.latitude }}&#176; </span>
+                                                </li>
+
+                                                <li>
+                                                      <span> Sunrise </span>
+                                                      <span class = 'sunrise'> {{ weather.sunrise }} </span>
+                                                </li>
+
+                                                <li>
+                                                        <span> Sunset </span>
+                                                        <span class = 'sunset'> {{ weather.sunset }} </span>
+                                                </li>
+
+                                        </ul>
+
+                                </ul>
+                                {% comment %}
+                <form method = 'POST'>
+                  {% csrf_token %}
+
+                    <div class = 'name_part'>
+                        {{ form.name }} <button class = 'btn'> Add City </button>
+                    </div>
+                                </form>
+                                {% endcomment %}
+                                </div>
+                        </div>
+                        {% endfor %}
+                </div>
+        </body>
+
+</html>
+
