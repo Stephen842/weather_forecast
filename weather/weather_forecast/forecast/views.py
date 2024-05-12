@@ -17,7 +17,7 @@ from django.utils import timezone
 # Create your views here.
 
 def weather(request):
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=385f1b098173657db729e61e4c744c87'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid= insert your own Api key digit '
 
     current_datetime = datetime.now() ### to get the current date
 
