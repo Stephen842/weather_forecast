@@ -17,7 +17,7 @@ from django.utils import timezone
 # Create your views here.
 
 def weather(request):
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid= insert your own Api key digit '
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=385f1b098173657db729e61e4c744c87'
 
     current_datetime = datetime.now() ### to get the current date
 
@@ -38,7 +38,7 @@ def weather(request):
 
 
     #Below is to convert timestamp to readable time for my sunrise and sunset functionality
-
+    
     timestamp = city_weather['sys']['sunrise']
     real_time = datetime.fromtimestamp(timestamp, tz = timezone.get_current_timezone())
     sunrise = real_time.strftime('%H:%M')
