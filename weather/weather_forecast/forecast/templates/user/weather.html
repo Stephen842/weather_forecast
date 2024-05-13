@@ -39,10 +39,12 @@
                                 </div>
 
                                 <div class = 'panel'>
-                                        <form action = '{% url 'search_results' %}' method = 'get' class = 'form'>
-                                        {% csrf_token %}
-                                        <input type = 'text' placeholder = 'Search Location...' name = 'search_field' class = 'search'/>
-                                        <button type = 'submit' class = 'submit'> <i class='bx bx-search-alt-2'></i> </button>
+                                        <form method = 'POST'>
+                                                {% csrf_token %}
+                                                  <div class = 'name_part'>
+                                                      <input type = 'text' name = 'name' maxlength='50' required id='id_name' class = 'search'/> 
+                                                      <button type = 'submit' class = 'submit'> <i class='bx bx-search-alt-2'></i> </button>
+                                                  </div>
                                         </form>
 
                                 <ul class = 'cities'>
@@ -106,15 +108,6 @@
                                         </ul>
 
                                 </ul>
-                                {% comment %}
-                <form method = 'POST'>
-                  {% csrf_token %}
-
-                    <div class = 'name_part'>
-                        {{ form.name }} <button class = 'btn'> Add City </button>
-                    </div>
-                                </form>
-                                {% endcomment %}
                                 </div>
                         </div>
                         {% endfor %}

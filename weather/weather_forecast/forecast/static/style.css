@@ -54,6 +54,9 @@ h1, h3{
         justify-content: center;
         align-items: center;
 }
+.brand:hover{
+        color: #E98F50;
+}
 
 .city-time, .temp, .weather {
         margin: 0 1em;
@@ -132,7 +135,7 @@ h1, h3{
         color: #fff;
         font-size: 1.1em;
         margin-top: 2.07em;
-        margin-right: 8em
+        margin-right: 8em;
 }
 
 .search:focus{
@@ -140,7 +143,7 @@ h1, h3{
 }
 
 .search:placeholder{
-        color: #fff;
+        color: #ccc;
 }
 
 .panel ul{
@@ -168,9 +171,6 @@ h1, h3{
         top: 55px
 }
 
-.city:hover{
-        #fff;
-}
 
 hr{
         color:#4CAF50;
