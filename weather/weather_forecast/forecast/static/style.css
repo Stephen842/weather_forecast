@@ -109,7 +109,6 @@ h1, h3{
         position: absolute;
         top: 0;
         right: 0.7em;
-
         padding: 1.5em;
         margin: 0;
         border: none;
@@ -134,8 +133,12 @@ h1, h3{
         width: 80%;
         color: #fff;
         font-size: 1.1em;
-        margin-top: 2.07em;
+        margin-top: -5.07em;
         margin-right: 8em;
+}
+#id_name{
+        position: absolute;
+        margin-top: -13.8em;
 }
 
 .search:focus{
@@ -182,7 +185,6 @@ hr{
         justify-content: space-between;
         align-items: center;
 }
-
 
 @media screen and (max-width: 800px){
         .panel, .container{

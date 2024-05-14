@@ -69,7 +69,8 @@ def weather(request):
     context = {'weather_data': weather_data,
                'form': form,
                'current_datetime': current_datetime,
-               'mycities': mycities
+               'mycities': mycities,
+               'title': 'Weather Now: Know Before You Go',
                }
 
     return render(request, 'user/weather.html', context)
