@@ -1,1 +1,1 @@
-Enhancing my programming skill through a weather forecast project utilizing HTML, CSS, Python (Django), OpenWeatherAPI, and Unsplash images. Focused on tracking weather in Abuja, Nigeria due to API limitations, offering valuable insights and knowledge.
+I'm embarking on an open-source project to build a weather app using Django. It's a great opportunity to sharpen my skills and contribute to the community. The app will fetch real-time weather data, boast a user-friendly interface, and be installable as a Python package via pip, ensuring accessibility for Django projects
