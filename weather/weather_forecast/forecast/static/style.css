@@ -57,7 +57,9 @@ h1, h3{
 .brand:hover{
         color: #E98F50;
 }
-
+.contain:hover{
+        color: #E98F50;
+}
 .city-time, .temp, .weather {
         margin: 0 1em;
 }
@@ -138,7 +140,7 @@ h1, h3{
 }
 #id_name{
         position: absolute;
-        margin-top: -13.8em;
+        margin-top: -13.56em;
 }
 
 .search:focus{

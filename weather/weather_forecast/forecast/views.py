@@ -42,7 +42,8 @@ def weather(request):
     timestamp = city_weather['sys']['sunrise']
     real_time = datetime.fromtimestamp(timestamp, tz = timezone.get_current_timezone())
     sunrise = real_time.strftime('%H:%M')
-                                        #this is for the sunset
+    
+    #this is for the sunset
     timestamps = city_weather['sys']['sunset']
     real_times = datetime.fromtimestamp(timestamps, tz = timezone.get_current_timezone())
     sunset = real_times.strftime('%H:%M')
