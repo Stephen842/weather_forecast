@@ -3,6 +3,5 @@ from . import views
 
 urlpatterns = [
         path('', views.weather, name = 'weather'),
-        path('search/', views.SearchResultsView.as_view(), name = 'search_results'),
 ]
 

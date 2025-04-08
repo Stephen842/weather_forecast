@@ -1,9 +1,7 @@
 from django.shortcuts import render
-from django.db.models import Q
 import requests
 from .models import City
 from .forms import CityForm
-from django.views.generic import ListView
 from datetime import datetime
 from django.utils import timezone
 
@@ -75,15 +73,3 @@ def weather(request):
     }
 
     return render(request, 'user/weather.html', context)
-
-''' Below is for the search part, that is to query data from the db. '''
-class SearchResultsView(ListView):
-    model = City
-    template_name = 'user/search_results.html'
-
-    def get_queryset(self):
-        query = self.request.GET.get('search_field')
-        object_list = City.objects.filter(
-                Q(name__icontains = query)
-                )
-        return object_list
